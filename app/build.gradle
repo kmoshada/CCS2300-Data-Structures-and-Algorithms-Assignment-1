@@ -34,10 +34,31 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'ccs2300.data.structures.and.algorithms.assignment.App'
+    mainClass = 'Module01.App'
 }
 
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+task runModule1(type: JavaExec) {
+    group = "Execution"
+    description = "Runs the main method of Module01.App"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'Module01.App'
+}
+
+task runModule2(type: JavaExec) {
+    group = "Execution"
+    description = "Runs the main method of Module02.App"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'Module02.App'
+}
+
+task runModule3(type: JavaExec) {
+    group = "Execution"
+    description = "Runs the main method of Module03.App"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'Module03.App'
 }
