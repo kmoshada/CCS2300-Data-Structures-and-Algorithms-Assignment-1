@@ -16,7 +16,7 @@ public class performanceAnalyzer{
 
             //mesure quick sort time
             long startSort=System.nanoTime();
-            SortingAlgorithms.quickSort(arr,0,arr.length -1);
+            SortingAlgorithms.quicksort(arr,0,arr.length -1);
             long endSort = System.nanoTime();
             long sortTime = endSort - startSort;
 
@@ -24,7 +24,7 @@ public class performanceAnalyzer{
             long startSearch=System.nanoTime();
             SearchingAlgorithms.binarySearch(arr,key);
             long endSearch = System.nanoTime();
-            long searchTime = endSort - startSort;
+            long searchTime = endSearch - startSearch;
 
             System.out.println(size + "\t" + sortTime + "\t\t" + searchTime);
 
