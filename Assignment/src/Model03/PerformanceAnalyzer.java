@@ -2,7 +2,7 @@
 public class PerformanceAnalyzer{
   public static void main (String[] args){
 
-      int[] sizes = {100,500,1000};
+      int[] sizes = {100,500,1000,5000,10000};
 
       System.out.println("-----------------------------------------------------------------------------");
       System.out.println("Size\tSort Time (ns)\t\tSearch Time(ns)");
