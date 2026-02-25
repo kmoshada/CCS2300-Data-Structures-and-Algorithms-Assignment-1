@@ -1,4 +1,4 @@
-package module2;
+package Model02;
 
 public class PerformanceResult {
     public final String algorithm;

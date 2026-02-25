@@ -1,4 +1,4 @@
-package module2;
+package Model02;
 
 import java.util.*;
 
