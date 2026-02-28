@@ -8,40 +8,43 @@ public class RunnerModel01 {
     private static final LocationBST pendingLocations = new LocationBST();
 
     public static void main(String[] args) {
-        // Use try-with-resources for robust scanner handling
         try (Scanner scanner = new Scanner(System.in)) {
-            while (true) {
-                printMenu();
-                String choice = scanner.nextLine();
+            run(scanner);
+        }
+    }
 
-                switch (choice) {
-                    case "1":
-                        stageLocation(scanner);
-                        break;
-                    case "2":
-                        mapStagedLocations();
-                        break;
-                    case "3":
-                        addRoad(scanner);
-                        break;
-                    case "4":
-                        removeLocation(scanner);
-                        break;
-                    case "5":
-                        removeRoad(scanner);
-                        break;
-                    case "6":
-                        displayAllConnections();
-                        break;
-                    case "7":
-                        performBfsTraversal(scanner);
-                        break;
-                    case "8":
-                        System.out.println("Exiting Smart City Planner...");
-                        return;
-                    default:
-                        System.out.println("Invalid option. Please try again.");
-                }
+    public static void run(Scanner scanner) {
+        while (true) {
+            printMenu();
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1":
+                    stageLocation(scanner);
+                    break;
+                case "2":
+                    mapStagedLocations();
+                    break;
+                case "3":
+                    addRoad(scanner);
+                    break;
+                case "4":
+                    removeLocation(scanner);
+                    break;
+                case "5":
+                    removeRoad(scanner);
+                    break;
+                case "6":
+                    displayAllConnections();
+                    break;
+                case "7":
+                    performBfsTraversal(scanner);
+                    break;
+                case "8":
+                    System.out.println("Returning to Main Menu...");
+                    return;
+                default:
+                    System.out.println("Invalid option. Please try again.");
             }
         }
     }
@@ -101,7 +104,7 @@ public class RunnerModel01 {
         try {
             int weight = Integer.parseInt(scanner.nextLine());
             cityNetwork.addRoad(start, end, weight);
-            System.out.println("Road added successfully between '" + start.getValue() + "' and '" + end.getValue() + "'!");
+            System.out.println("Road added successfully between '" + start.getData() + "' and '" + end.getData() + "'!");
         } catch (NumberFormatException e) {
             System.out.println("Error: Weight must be a valid integer.");
         }
@@ -110,7 +113,7 @@ public class RunnerModel01 {
     private static void removeLocation(Scanner scanner) {
         Location toRemove = getLocationFromUser(scanner, "Enter location to remove: ");
         if (toRemove != null) {
-            String locName = toRemove.getValue();
+            String locName = toRemove.getData();
             cityNetwork.removeLocation(toRemove);
             System.out.println("Location '" + locName + "' and its associated roads have been removed.");
         } else {
@@ -131,7 +134,7 @@ public class RunnerModel01 {
         }
         // Typo corrected: 'removeRoades' to 'removeRoad' (assuming this is the method in Graph)
         cityNetwork.removeRoad(rStart, rEnd);
-        System.out.println("Road between '" + rStart.getValue() + "' and '" + rEnd.getValue() + "' removed.");
+        System.out.println("Road between '" + rStart.getData() + "' and '" + rEnd.getData() + "' removed.");
     }
 
     private static void displayAllConnections() {
@@ -144,7 +147,7 @@ public class RunnerModel01 {
         if (startNode != null) {
             // Method name corrected to follow Java conventions: 'TraversalBSF' to 'traverseBFS'
             // (assuming this is the method in the Graph class)
-            cityNetwork.traverseBFS(startNode.getValue());
+            cityNetwork.traverseBFS(startNode.getData());
         } else {
             System.out.println("Error: Cannot perform traversal. Starting location not found.");
         }

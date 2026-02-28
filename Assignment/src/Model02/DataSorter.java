@@ -26,6 +26,7 @@ public class DataSorter {
 
             if (sc.hasNextInt()) {
                 choice = sc.nextInt();
+                sc.nextLine(); // consume newline
             } else {
                 System.out.println("Invalid input! Please enter a number.");
                 sc.next();
@@ -74,12 +75,14 @@ public class DataSorter {
     private static int[] manualInput(Scanner sc) {
         System.out.print("How many numbers? ");
         int n = sc.nextInt();
+        sc.nextLine(); // consume newline
 
         int[] arr = new int[n];
 
         for (int i = 0; i < n; i++) {
             System.out.print("Enter number " + (i + 1) + ": ");
             arr[i] = sc.nextInt();
+            sc.nextLine(); // consume newline
         }
 
         return arr;
@@ -92,6 +95,7 @@ public class DataSorter {
 
         System.out.print("Enter dataset size: ");
         int n = sc.nextInt();
+        sc.nextLine(); // consume newline
 
         Random rand = new Random();
         int[] arr = new int[n];

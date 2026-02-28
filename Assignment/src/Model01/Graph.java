@@ -32,7 +32,7 @@ public class Graph {
         }
     }
 
-    public void removeRoades(Location location1,Location location2){
+    public void removeRoad(Location location1,Location location2){
         location1.removeRoad(location2);
         if (!this.isDirected){
             location2.removeRoad(location1);
@@ -79,7 +79,7 @@ public class Graph {
         }
     }
 
-    public void TraversalBSF(String startLocationName) {
+    public void traverseBFS(String startLocationName) {
         Location startNode = getLocationByValue(startLocationName);
         if (startNode == null) {
             System.out.println("Location not found.");
