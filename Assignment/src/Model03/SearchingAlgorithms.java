@@ -12,7 +12,7 @@ public class SearchingAlgorithms{
                 return mid;
             if(arr[mid] < key)
                 left = mid + 1;
-            else
+            else;
                 right = mid-1;
 
 
